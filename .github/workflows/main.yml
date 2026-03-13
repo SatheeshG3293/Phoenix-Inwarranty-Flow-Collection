@@ -47,6 +47,26 @@ jobs:
         with: 
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: newman/
+
+      - name: Sending Mail from Github
+        if: always()
+        uses: dawidd6/action-send-mail@v14
+        with: 
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Phoneix Inwarrenty Flow Execution Results
+          to: satheeshiniyan8723@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: |
+                Hi,
+
+                Please find the Phoneix InWarrenty Flow Execution Results
+                Please Find the Link: https://satheeshg3293.github.io/Phoenix-Inwarranty-Flow-Collection/
+
+                Regards
+                Satheesh Kumar G
         
         
 
