@@ -38,7 +38,16 @@ jobs:
         uses: actions/upload-artifact@v7.0.0
         with:
           name: Newman Report
-          path: newman/*
+          path: newman/*.html
+
+      - name: Creating github Page branches
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: newman/
+        
+        
 
 
 
