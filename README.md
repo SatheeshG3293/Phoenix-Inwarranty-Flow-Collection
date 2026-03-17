@@ -1,83 +1,79 @@
-<<<<<<< HEAD
+# Postman API Automation Integration with GitHub Actions
 
-```
-Phoenix Inwarranty Flow Collection
-├─ Inwarrenty Flow Collection.postman_collection.json
-├─ QA.postman_environment.json
-├─ testdata.csv
-└─ Testfile.txt
+This repository is a proof of concept (POC) for integrating Postman tests with GitHub Actions. The tests are written in Postman and executed on a VM using Newman and newman-reporter-htmlextra.
 
-```
-=======
-# Postman API Automation Integration with Github Actions #
+GitHub Actions triggers the project execution on every push to the `main` branch. You can also execute the project manually using `workflow_dispatch`, or schedule it using a cron trigger.
 
-This Repository is a demonstration for POC for integrating postman tests with github actions. The Tests are written in Postman and they are executed on the VM with the help of newmand and newman-reporter-htmlextra.
-GitHub Actions will trigger the project execution on every push to the main branch. you can also execute the project manually using workflow_dispatch and the project run on a scheduled time with the help of Cron.
+The HTML report is archived as a workflow artifact for download, and can also be viewed via GitHub Pages:
+https://satheeshg3293.github.io/Phoenix-Inwarranty-Flow-Collection/
 
-The HTML is archeived and kept in artifact section for the team to download it. Along with that they can view the report from the github page: https://satheeshg3293.github.io/Phoenix-Inwarranty-Flow-Collection/ 
+Latest reports are emailed to the team using Gmail SMTP.
 
-The Latest Report mailed to the Team members using the GMAIL SMTP.
+## Testing Coverage
+1. Happy flow testing
+2. Negative testing and edge case testing
+3. Token testing
+4. Data-driven testing with CSV
+5. Schema validation
+6. Secrets management using GitHub Actions
 
-## Testing Coverage ##
-1. Happy Flow Testing
-2. Negative Testing and Edge case Testing
-3. Token Testing
-4. Data Driven Testing with CSV
-5. Scheman Validation
-6. Secrets management using Github Actions
-
-## Tech Stack ##
+## Tech Stack
 1. Postman
-2. Node js 22v
+2. Node.js 22
 3. npm
 4. Newman
-5. Newman-reporter-htmlextra
-6. Github Actions
-7. GMAIL SMTP
-8. Github Pages
-9. CSV for Data Driven Testing
-10. AWS-EC2 instance for Self Hosted github runner.
+5. newman-reporter-htmlextra
+6. GitHub Actions
+7. Gmail SMTP
+8. GitHub Pages
+9. CSV for data-driven testing
+10. AWS EC2 (self-hosted GitHub runner)
 
-## Github Pages ##
+## GitHub Pages
+You can directly view the latest test report on GitHub Pages:
+https://satheeshg3293.github.io/Phoenix-Inwarranty-Flow-Collection/
 
-you can directly view the latest test reoprt of the Postman Test at Github Page URL: https://satheeshg3293.github.io/Phoenix-Inwarranty-Flow-Collection/
-
-## HTML Report ##
-The Following Report will be Created in the Newman Folder
+## HTML Report
+The following report is generated under the `newman/` folder:
 
 ![Postman Report](https://raw.githubusercontent.com/SatheeshG3293/Phoenix-Inwarranty-Flow-Collection/Static-content/Newman%20Report%20Format.png)
 
-
-## Project Structure ##
+## Project Structure
 
 ```
 Phoenix Inwarranty Flow Collection
-├─ Inwarrenty Flow Collection.postman_collection.json #Collection File
-├─ QA.postman_environment.json #Environment file
-├─ testdata.csv #Test data file
+├─ Inwarrenty Flow Collection.postman_collection.json # Collection file
+├─ QA.postman_environment.json # Environment file
+├─ testdata.csv # Test data file
 └─ Testfile.txt
-
 ```
 
-## How to Run the Project ##
-You can run the project in the local systems for that:
+## How to Run the Project
+1. Clone the project:
+   ```sh
+   git clone https://github.com/SatheeshG3293/Phoenix-Inwarranty-Flow-Collection.git
+   ```
+2. Install Node.js and npm: https://nodejs.org/en/download
+3. Install Newman:
+   ```sh
+   npm install -g newman
+   ```
+4. Install the HTML reporter:
+   ```sh
+   npm install -g newman-reporter-htmlextra
+   ```
+5. Run the collection:
+   ```sh
+   newman run 'Inwarrenty Flow Collection.postman_collection.json' \
+     -e QA.postman_environment.json \
+     -r htmlextra,cli \
+     --reporter-htmlextra-export ./newman/index.html
+   ```
 
-1. Clone the Project on the Local System: https://github.com/SatheeshG3293/Phoenix-Inwarranty-Flow-Collection.git
-2. Install the node.js and NPM from : https://nodejs.org/en/download
-3. Install newman using ```npm install -g newman```
-4. Install newman-html using ```npm install -g newman-reporter-htmlextra```
-5. Run the newman command:
- ```
-           newman run 'Inwarrenty Flow Collection.postman_collection.json' \
-          -e QA.postman_environment.json \
-          -r htmlextra,cli \
-          --reporter-htmlextra-export ./newman/index.html
-```
+## About Me
+Hi, my name is Satheesh Kumar Ganesh. I have 9+ years of experience in both manual and automation testing.
 
-## About me ##
+My skillset includes UI automation with Selenium WebDriver and Tricentis Tosca, and API testing using Postman, Rest Assured, and Parasoft SOATest.
 
-Hi My name is Satheesh Kumar Ganesh. I have 9+ Years of Experience in both Manual and automation Testing.
-My skillset includes UI Automation with Selenium Webdriver and Tricentis Tosca and API Testing I use Postman, Rest Assured and Parasoft SOATest.
+You can connect with me: https://www.linkedin.com/in/satheesh-kumar-ganesh-70897099/
 
-you can connect with me: !(https://www.linkedin.com/in/satheesh-kumar-ganesh-70897099/)
->>>>>>> a8528f3bc1f3d291bfe104ab6eac7a4911f67da6
